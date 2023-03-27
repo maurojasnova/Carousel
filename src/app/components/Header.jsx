@@ -1,4 +1,9 @@
+"use client";
+
 import Link from "next/link";
+import styles from "./Header.module.css";
+import React, { useState } from "react";
+import BurgerButton from "./BurgerButton";
 
 const links = [
   {
@@ -25,15 +30,23 @@ const links = [
 
 export function Header() {
   return (
-    <header>
-      <nav>
-        <ul>
+    <header className={styles.header}>
+      <nav className={styles.navbar}>
+        <Link href="#" className={styles.logo}>
+          SB
+        </Link>
+        <ul className={styles.menu}>
           {links.map(({ label, route }) => (
-            <li key={route}>
-              <Link href={route}>{label}</Link>
+            <li key={route} className={styles.item}>
+              <Link href={route} className={styles.link}>
+                {label}
+              </Link>
             </li>
           ))}
         </ul>
+        <div className={styles.divHamburger}>
+          <BurgerButton />
+        </div>
       </nav>
     </header>
   );
