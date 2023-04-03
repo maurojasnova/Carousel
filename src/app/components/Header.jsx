@@ -3,7 +3,6 @@
 import Link from "next/link";
 import styles from "./Header.module.css";
 import React, { useState } from "react";
-import BurgerButton from "./BurgerButton";
 
 const links = [
   {
@@ -29,13 +28,14 @@ const links = [
 ];
 
 export function Header() {
+  const [isOpen, setIsOpen] = useState(true);
   return (
     <header className={styles.header}>
       <nav className={styles.navbar}>
         <Link href="#" className={styles.logo}>
           SB
         </Link>
-        <ul className={styles.menu}>
+        <ul className={`${styles.menu} ${isOpen ? styles['menu--active'] : ''}`} onClick={() => setIsOpen(!isOpen)}>
           {links.map(({ label, route }) => (
             <li key={route} className={styles.item}>
               <Link href={route} className={styles.link}>
@@ -44,8 +44,10 @@ export function Header() {
             </li>
           ))}
         </ul>
-        <div className={styles.divHamburger}>
-          <BurgerButton />
+        <div className={`${styles.hamburger} ${isOpen ? styles['hamburger--active'] : ''}`} onClick={() => setIsOpen(!isOpen)}>
+            <span className={styles.bar} />
+            <span className={styles.bar} />
+            <span className={styles.bar} />
         </div>
       </nav>
     </header>
