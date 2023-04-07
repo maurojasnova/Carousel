@@ -28,7 +28,7 @@ const links = [
 ];
 
 export function Header() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <header className={styles.header}>
       <nav className={styles.navbar}>
