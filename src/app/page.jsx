@@ -13,9 +13,9 @@ export default function HomePage() {
   return (
     <div>
       <Carousel>
-        <CarouselItem>Item 1</CarouselItem>
-        <CarouselItem>Item 2</CarouselItem>
-        <CarouselItem>Item 3</CarouselItem>
+        <CarouselItem image="/images/capybara.jpg" title="Capybar 1" description="Cute animal"/>
+        <CarouselItem image="/images/capybara.jpg" title="Capybar 2" description="Cute animal"/>
+        <CarouselItem image="/images/capybara.jpg" title="Capybar 3" description="Cute animal"/>
       </Carousel>
     </div>
   );

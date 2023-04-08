@@ -4,10 +4,14 @@ import { useSwipeable } from "react-swipeable";
 import Image from "next/image";
 import "./carousel.css";
 
-export const CarouselItem = ({ children, width }) => {
+export const CarouselItem = ({ image, title, description, width }) => {
   return (
-    <div className="carousel-item" style={{ width: width }}>
-      {children}
+    <div className="carousel-item">
+      <div className="carousel-item-data">
+        <Image src={image} alt={title} width={500} height={500} />
+        <h2>{title}</h2>
+        <p>{description}</p>
+      </div>
     </div>
   );
 };

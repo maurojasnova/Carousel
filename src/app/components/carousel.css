@@ -11,9 +11,16 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 200px;
-  background-color: green;
-  color: #fff;
+  height: 800px;
+  width: 100%;
+  color: #252525;
+}
+
+.carousel-item-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .indicators {
