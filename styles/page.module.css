@@ -1,0 +1,27 @@
+.favorites {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+}
+
+.title {
+    font-size: 4rem;
+    color: var(--dark-orange);
+    margin-top: 52px;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 2.4rem;
+    color: var(--grey);
+    margin: 20px 0px;
+    text-align: center;
+    width: 90%;
+    padding: 0 8px;
+}
+
+.carousel {
+    margin-top: 24px;
+    width: 100%;
+}

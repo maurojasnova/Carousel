@@ -1,5 +1,6 @@
 .carousel {
   overflow: hidden;
+  width: 100%;
 }
 
 .inner {
@@ -11,7 +12,6 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 800px;
   width: 100%;
   color: #252525;
 }
@@ -21,6 +21,46 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 20px 0px;
+}
+
+.carousel-item-data-image {
+  border-radius: 10px;
+  height: 216px;
+  width: 190px;
+  margin: 10px 0;
+}
+
+.carousel-item-data-title {
+  font-size: 1.6rem;
+  margin: 10px 0;
+  text-align: center;
+  color: var(--black);
+  width: 100%;
+  white-space: normal;
+}
+
+.carousel-item-data-description {
+  height: auto;
+  padding: 0 48px;
+  width: 100%;
+  text-align: center;
+  white-space: normal;
+  font-size: 1.4rem;
+  margin: 10px 0;
+}
+
+.carousel-item-data-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 190px;
+  background-color: var(--light-orange);
+  height: 40px;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  margin: 10px 0;
 }
 
 .indicators {
@@ -30,4 +70,28 @@
 
 .indicators > button {
   margin: 5px;
+}
+
+@media (min-width: 600px) {
+
+  .carousel {
+    width: 100%;
+  }
+
+  .carousel-item {
+    width: 50%;
+  }
+  
+}
+
+@media (min-width: 900px) {
+
+  .carousel {
+    width: 100%;
+  }
+
+  .carousel-item {
+    width: 33%;
+  }
+  
 }

@@ -1,21 +1,22 @@
 "use client";
 
 import Carousel, { CarouselItem } from "./components/Carousel";
+
 import Image from "next/image";
 
+import styles from "../../styles/page.module.css";
+
+import { favorites } from "../../data/favorites";
+
 export default function HomePage() {
-  const images = [
-    "/images/capybara.jpg",
-    "/images/capybara.jpg",
-    "/images/capybara.jpg",
-    "/images/capybara.jpg",
-  ];
   return (
-    <div>
-      <Carousel>
-        <CarouselItem image="/images/capybara.jpg" title="Capybar 1" description="Cute animal"/>
-        <CarouselItem image="/images/capybara.jpg" title="Capybar 2" description="Cute animal"/>
-        <CarouselItem image="/images/capybara.jpg" title="Capybar 3" description="Cute animal"/>
+    <div className={styles.favorites}>
+      <h1 className={styles.title}>Favoritos</h1>
+      <p className={styles.description}>Descubre los favoritos de nuestros clientes</p>
+      <Carousel className={styles.carousel}>
+        {favorites.map((dish) => {
+          return <CarouselItem key={dish.title} {...dish} />
+        })}
       </Carousel>
     </div>
   );

@@ -4,13 +4,20 @@ import { useSwipeable } from "react-swipeable";
 import Image from "next/image";
 import "./carousel.css";
 
-export const CarouselItem = ({ image, title, description, width }) => {
+export const CarouselItem = ({ image, title, description, price }) => {
   return (
     <div className="carousel-item">
       <div className="carousel-item-data">
-        <Image src={image} alt={title} width={500} height={500} />
-        <h2>{title}</h2>
-        <p>{description}</p>
+        <Image
+          src={image}
+          className="carousel-item-data-image"
+          alt={title}
+          width={190}
+          height={216}
+        />
+        <h2 className="carousel-item-data-title">{title}</h2>
+        <p className="carousel-item-data-description">{description}</p>
+        <p className="carousel-item-data-price">{price}</p>
       </div>
     </div>
   );
@@ -19,6 +26,14 @@ export const CarouselItem = ({ image, title, description, width }) => {
 const Carousel = ({ children }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+
+  // Display number of cards depending on the screen size
+  const isSmallScreen = window.matchMedia("(max-width: 600px)").matches;
+  const isMediumScreen = window.matchMedia("(min-width: 601px) and (max-width: 900px)").matches;
+  // const isLargeScreen = window.matchMedia("(min-width: 901px)").matches;
+  const styles = {
+    transform: isSmallScreen ? `translateX(-${activeIndex * 100}%)` : isMediumScreen ? `translateX(-${activeIndex * 50}%)` : `translateX(-${activeIndex * 33}%)`
+  };
 
   const updateIndex = (newIndex) => {
     if (newIndex < 0) {
@@ -58,10 +73,10 @@ const Carousel = ({ children }) => {
     >
       <div
         className="inner"
-        style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+        style={styles}
       >
         {React.Children.map(children, (child, index) => {
-          return React.cloneElement(child, { width: "100%" });
+          return React.cloneElement(child, { width: "50%" });
         })}
       </div>
       <div className="indicators">
