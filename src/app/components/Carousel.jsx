@@ -29,10 +29,16 @@ const Carousel = ({ children }) => {
 
   // Display number of cards depending on the screen size
   const isSmallScreen = window.matchMedia("(max-width: 600px)").matches;
-  const isMediumScreen = window.matchMedia("(min-width: 601px) and (max-width: 900px)").matches;
+  const isMediumScreen = window.matchMedia(
+    "(min-width: 601px) and (max-width: 900px)"
+  ).matches;
   // const isLargeScreen = window.matchMedia("(min-width: 901px)").matches;
   const styles = {
-    transform: isSmallScreen ? `translateX(-${activeIndex * 100}%)` : isMediumScreen ? `translateX(-${activeIndex * 50}%)` : `translateX(-${activeIndex * 33}%)`
+    transform: isSmallScreen
+      ? `translateX(-${activeIndex * 100}%)`
+      : isMediumScreen
+      ? `translateX(-${activeIndex * 50}%)`
+      : `translateX(-${activeIndex * 33}%)`,
   };
 
   const updateIndex = (newIndex) => {
@@ -71,28 +77,49 @@ const Carousel = ({ children }) => {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <div
-        className="inner"
-        style={styles}
-      >
+      <div className="inner" style={styles}>
         {React.Children.map(children, (child, index) => {
           return React.cloneElement(child, { width: "50%" });
         })}
       </div>
-      <div className="indicators">
+      <div className="indicators-container">
         <button
+          className="indcators-container-button"
           onClick={() => {
             updateIndex(activeIndex - 1);
           }}
         >
-          Prev
+          <svg
+            width="11"
+            height="19"
+            viewBox="0 0 11 19"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.88502 18.7097L11 16.6174L4.13002 9.80646L11 2.99549L8.88502 0.903237L-0.114985 9.80646L8.88502 18.7097Z"
+              fill="#D39F29"
+            />
+          </svg>
         </button>
         <button
+          className="indcators-container-button"
           onClick={() => {
             updateIndex(activeIndex + 1);
           }}
         >
-          Next
+          <svg
+            width="11"
+            height="19"
+            viewBox="0 0 11 19"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M2.11498 0.903225L-1.52588e-05 2.99548L6.86998 9.80645L-1.52588e-05 16.6174L2.11498 18.7097L11.115 9.80645L2.11498 0.903225Z"
+              fill="#D39F29"
+            />
+          </svg>
         </button>
       </div>
     </div>
