@@ -2,8 +2,6 @@
 
 import Carousel, { CarouselItem } from "./components/Carousel";
 
-import Image from "next/image";
-
 import styles from "../../styles/page.module.css";
 
 import { favorites } from "../../data/favorites";
