@@ -12,10 +12,12 @@ export default function HomePage() {
   return (
     <div className={styles.favorites}>
       <h1 className={styles.title}>Favoritos</h1>
-      <p className={styles.description}>Descubre los favoritos de nuestros clientes</p>
+      <p className={styles.description}>
+        Descubre los favoritos de nuestros clientes
+      </p>
       <Carousel className={styles.carousel}>
         {favorites.map((dish) => {
-          return <CarouselItem key={dish.title} {...dish} />
+          return <CarouselItem key={dish.title} {...dish} />;
         })}
       </Carousel>
     </div>

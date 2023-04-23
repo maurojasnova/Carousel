@@ -42,12 +42,10 @@
 
 .carousel-item-data-description {
   height: auto;
-  padding: 0 48px;
-  width: 100%;
+  width: 150px;
   text-align: center;
   white-space: normal;
   font-size: 1.4rem;
-  margin: 10px 0;
 }
 
 .carousel-item-data-price {
@@ -79,6 +77,11 @@
   cursor: pointer;
   outline: inherit;
   margin: 5px;
+  transition: transform 0.2s;
+}
+
+.indcators-container-button:hover {
+  transform: scale(1.2);
 }
 
 @media (min-width: 600px) {
