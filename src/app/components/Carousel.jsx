@@ -28,10 +28,15 @@ const Carousel = ({ children }) => {
   const [paused, setPaused] = useState(false);
 
   // Display number of cards depending on the screen size
-  const isSmallScreen = window.matchMedia("(max-width: 600px)").matches;
-  const isMediumScreen = window.matchMedia(
-    "(min-width: 601px) and (max-width: 900px)"
-  ).matches;
+  let isSmallScreen;
+  let isMediumScreen;
+  if (typeof window !== "undefined") {
+    isSmallScreen = window.matchMedia("(max-width: 600px)").matches;
+    isMediumScreen = window.matchMedia(
+      "(min-width: 601px) and (max-width: 900px)"
+    ).matches;
+  }
+
   // const isLargeScreen = window.matchMedia("(min-width: 901px)").matches;
   const styles = {
     transform: isSmallScreen
