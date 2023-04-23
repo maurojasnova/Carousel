@@ -1,6 +1,7 @@
 .carousel {
   overflow: hidden;
   width: 100%;
+  padding-bottom: 48px;
 }
 
 .inner {
